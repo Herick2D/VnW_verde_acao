@@ -35,9 +35,7 @@ a {
   border-top: 3px solid #333333; 
 
   .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 0;
   }
 
   &__logo {
@@ -45,23 +43,36 @@ a {
     font-size: 2.2rem;
     font-weight: 700;
     white-space: nowrap; 
+    display: inline-block;
+    vertical-align: middle;
   }
 
-  &__nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px; 
-  }
+  &__nav {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+    text-align: right;
+    font-size: 1rem;
 
-  &__nav a {
-    color: #ffffff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-weight: 700; 
-    transition: background-color 0.3s ease;
+    ul {
+      list-style: none;
+    }
 
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    li {
+      display: inline-block;
+      margin-left: 30px;
+    }
+
+    a {
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-weight: 700; 
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
     }
   }
 }
@@ -91,7 +102,7 @@ a {
   &--card {
     width: 100%;
     text-align: center;
-    margin-top: auto;
+    margin-top: 20px;
   }
 
   &--submit {
@@ -135,9 +146,8 @@ a {
 }
 
 .activities-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  font-size: 0;
+  margin-left: -24px;
 }
 
 .activity-card {
@@ -145,8 +155,12 @@ a {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1rem;
+  width: calc(25% - 24px);
+  margin-left: 24px;
+  margin-bottom: 24px;
 
   img {
     width: 100%;
@@ -157,9 +171,6 @@ a {
   &__content {
     padding: 24px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
   }
 
   h3 {
@@ -201,16 +212,12 @@ a {
   }
 
   &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
   }
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
   text-align: left;
+  margin-bottom: 20px;
 
   label {
     font-weight: 700;
@@ -243,12 +250,6 @@ a {
   
   select {
     color: #333333;
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    padding-right: 40px; 
   }
   
   select:invalid {
@@ -257,18 +258,8 @@ a {
 }
 
 .select-wrapper {
-  position: relative;
-
   i.ph-caret-down {
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    transform: translateY(-50%);
-    
-    font-size: 1.2rem;
-    color: #555;
-
-    pointer-events: none; 
+    display: none; 
   }
 }
 
@@ -283,18 +274,32 @@ a {
 
 @media (max-width: 900px) {
   .activities-grid {
-    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .activity-card {
+    width: calc(50% - 24px); 
   }
 }
 
 @media (max-width: 600px) {
   .activities-grid {
-    grid-template-columns: 1fr;
+  }
+  
+  .activity-card {
+    width: calc(100% - 24px);
   }
   
   .site-header .container {
-    flex-direction: column;
-    gap: 15px;
+    text-align: center;
+  }
+  
+  .site-header__logo {
+    margin-bottom: 15px;
+  }
+  
+  .site-header__nav {
+    width: 100%;
+    text-align: center;
   }
   
   .hero {
